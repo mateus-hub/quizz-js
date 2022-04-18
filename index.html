@@ -9,6 +9,41 @@
     <script src="js/scripts.js" defer></script>
   </head>
   <body>
-    <h1>Quizz-js</h1>
+    <h1 id="main-title">Quizz de programação</h1>
+    <!-- SCORE BOARD -->
+    <div id="score-container">
+      <p id="display-score"><span>90</span>%</p>
+      <p>
+        Você acertou <span id="correct-answer">0</span> de
+        <span id="questions-qty"></span> perguntas
+      </p>
+      <button id="restart">Refazer quizz!</button>
+    </div>
+    <!-- QUIZZ CONTAINER -->
+    <div id="quizz-container">
+      <p id="question">
+        <span id="question-number">1</span> -
+        <span id="question-text">Qual é a unidade de media para metros?</span>
+      </p>
+      <div id="answers-box">
+        <button class="correct-answer">
+          <span id="btn-letter">a</span> <span class="question-answer">m</span>
+        </button>
+        <button class="wrong-answer">
+          <span id="btn-letter">b</span> <span class="question-answer">km</span>
+        </button>
+        <button class="wrong-answer">
+          <span id="btn-letter">c</span> <span class="question-answer">ms</span>
+        </button>
+        <button class="wrong-answer">
+          <span id="btn-letter">d</span> <span class="question-answer">r</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- TEMPLATE RESPOSTA -->
+    <button class="answer-template hiode">
+      <span id="btn-letter">a</span> <span class="question-answer">m</span>
+    </button>
   </body>
 </html>
