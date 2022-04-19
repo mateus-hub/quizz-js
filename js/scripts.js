@@ -1,4 +1,4 @@
-// Declaração de variáveis
+// Declaração variáveis
 const question = document.querySelector("#question");
 const answersBox = document.querySelector("#answers-box");
 const quizzContainer = document.querySelector("#quizz-container");
@@ -74,9 +74,9 @@ const questions = [
   },
 ];
 
-// Substituição do quizz para a primeira pergunta
+// Substituição do quizz para a primeria pergunta
 function init() {
-  //criar a primeira pergunta
+  // criar a primeira pergunta
   createQuestion(0);
 }
 
@@ -94,7 +94,38 @@ function createQuestion(i) {
   const questionNumber = question.querySelector("#question-number");
 
   questionText.textContent = questions[i].question;
-  questionNumber.textContext = i + 1;
+  questionNumber.textContent = i + 1;
+
+  // Insere as alternativas
+  questions[i].answers.forEach(function (answer, i) {
+    // Cria o template do botão do quizz
+    const answerTemplate = document
+      .querySelector(".answer-template")
+      .cloneNode(true);
+
+    const letterBtn = answerTemplate.querySelector(".btn-letter");
+    const answerText = answerTemplate.querySelector(".question-answer");
+
+    letterBtn.textContent = letters[i];
+    answerText.textContent = answer["answer"];
+
+    answerTemplate.setAttribute("correct-answer", answer["correct"]);
+
+    // Remover hide e template class
+    answerTemplate.classList.remove("hide");
+    answerTemplate.classList.remove("answer-template");
+
+    // Inserir a alternativa na tela
+    answersBox.appendChild(answerTemplate);
+
+    // Inserir um evento de click no botão
+    answerTemplate.addEventListener("click", function () {
+      console.log(this);
+    });
+  });
+
+  // Increementar o número da questão
+  actualQuestion++;
 }
 
 // Inicialização do Quizz
